@@ -25,6 +25,14 @@ jobs:
             - name: Run Tests
               run: go test ./...
 
-            - name: Build Application
-              run: go build -v ./...
+            - name: Build Go Binary
+              run: go build -o my_app main.go 
+
+            - name: Upload Build Artifact
+              uses: actions/upload-artifact@v3
+              with:
+                name: my_app_binary
+                path: my_app
+
+            
             
