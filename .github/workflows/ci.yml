@@ -33,3 +33,19 @@ jobs:
               with:
                 name: my_app_ubuntu
                 path: my_app
+
+
+    deploy-stage:
+      needs: build-ubuntu
+      runs-on: ubuntu-latest
+      environment:
+        name: staging
+      steps:
+        - name: Download build artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: my_app_ubuntu
+            path: my_app
+
+        - name: Deployment to Stage
+          run: echo "Deploying to stage..."
