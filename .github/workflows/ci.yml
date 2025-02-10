@@ -34,5 +34,20 @@ jobs:
                 name: my_app_binary
                 path: my_app
 
-            
+    deploy-stage:
+
+        needs: build
+        runs-on: ubuntu-latest
+        environment:
+            name: staging
+        steps:
+            - name: Download Build Artifact
+              uses: actions/download-artifact@v4
+              with:
+                name: my_app_binary
+                path: my_app
+
+            - name: Deploy to staging
+              run: echo "Deploying to stage environment"
+ 
             
