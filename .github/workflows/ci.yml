@@ -48,4 +48,4 @@ jobs:
             path: my_app
 
         - name: Deployment to Stage
-          run: echo "Deploying to stage..."
+          run: echo "Deploying to stage with continous deployment"
